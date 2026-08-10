@@ -74,8 +74,8 @@
       <div class="stats-grid">
         <div class="stat"><div class="num"><span id="s1">0</span><span class="suf">+</span></div><div class="lab">등록 펀드</div></div>
         <div class="stat"><div class="num"><span id="s2">0</span><span class="suf">+</span></div><div class="lab">전문 투자자</div></div>
-        <div class="stat"><div class="num"><span id="s3">0</span><span class="suf">+</span></div><div class="lab">활성 펀드</div></div>
-        <div class="stat"><div class="num"><span id="s4">0</span><span class="suf">+</span></div><div class="lab">2026년 신생 펀드</div></div>
+        <div class="stat"><div class="num"><span id="s3">0</span><span class="suf">개</span></div><div class="lab">2026 신생 펀드</div></div>
+        <div class="stat"><div class="num"><span id="s4">0</span><span class="suf">조원</span></div><div class="lab">2026 결성 금액</div></div>
       </div>
       <p class="foot">매주 자동 갱신 · KVIC 공지 실시간 반영</p>
     </div>
@@ -841,18 +841,20 @@
 var PAGES = ['home','service','about','news','contact'];
 var statsDone = false;
 
-function countUp(id,target){
+function fmtNum(n,d){ return n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function countUp(id,target,decimals){
+  decimals = decimals||0;
   var el=document.getElementById(id); if(!el) return;
-  var cur=0, step=Math.max(1,Math.ceil(target/60));
+  var cur=0, step=Math.max(decimals?Math.pow(10,-decimals):1, target/60);
   var t=setInterval(function(){
     cur+=step;
-    if(cur>=target){el.textContent=target.toLocaleString();clearInterval(t);}
-    else{el.textContent=cur.toLocaleString();}
+    if(cur>=target){el.textContent=fmtNum(target,decimals);clearInterval(t);}
+    else{el.textContent=fmtNum(cur,decimals);}
   },24);
 }
 function runStats(){
   if(statsDone) return; statsDone=true;
-  countUp('s1',7053); countUp('s2',1249); countUp('s3',5570); countUp('s4',142);
+  countUp('s1',7053); countUp('s2',1249); countUp('s3',142); countUp('s4',46.8,1);
 }
 function showPage(id){
   if(PAGES.indexOf(id)===-1) id='home';
