@@ -1,0 +1,36 @@
+name: 주간 수치 자동 갱신
+
+on:
+  schedule:
+    # 매주 일요일 23:00 UTC = 매주 월요일 08:00 KST
+    - cron: '0 23 * * 0'
+  workflow_dispatch: {}   # 수동 실행 버튼
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: vcroute.com 수치 크롤 & 갱신
+        run: node scripts/update-stats.mjs
+
+      - name: 변경 시 커밋 & 푸시
+        run: |
+          git config user.name "stats-bot"
+          git config user.email "stats-bot@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add index.html data/stats.json
+            git commit -m "chore: vcroute 주간 수치 자동 갱신"
+            git push
+            echo "✅ 수치 갱신 커밋 완료"
+          else
+            echo "변경 없음 — 스킵"
+          fi
