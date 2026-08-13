@@ -40,6 +40,8 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.82);
   backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav .logo img{height:38px;width:auto}
+.nav .logo a{font-size:18px;font-weight:800;letter-spacing:.06em;color:var(--ink);white-space:nowrap}
+.nav .logo a:hover{color:var(--brand)}
 .nav-links{display:flex;align-items:center;gap:38px;list-style:none}
 .nav-links a{font-size:15.5px;font-weight:600;color:var(--ink-2);transition:.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--brand)}
