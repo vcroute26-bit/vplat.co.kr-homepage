@@ -421,7 +421,8 @@ a.news-item:hover .news-title{color:var(--brand)}
 
 /* ===== Footer ===== */
 footer{background:var(--soft);border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted)}
-.foot-logo{font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:22px}
+.foot-logo{font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.foot-en{font-size:.85rem;font-weight:600;color:var(--muted);letter-spacing:.05em;margin-bottom:22px}
 .foot-info p{font-size:14px;line-height:1.9;color:var(--muted)}
 .foot-info span{padding:0 10px;border-right:1px solid #d5dbe4}
 .foot-info span:first-child{padding-left:0}
