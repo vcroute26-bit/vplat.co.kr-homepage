@@ -920,9 +920,43 @@ document.querySelectorAll('.tab-btn').forEach(function(btn){
   });
 });
 
+/* ===== News 페이지네이션 (탭당 7개, 넘치면 페이지 분할) ===== */
+function paginateNews(){
+  var PER = 7;
+  document.querySelectorAll('.news-list.tab-panel').forEach(function(panel){
+    var items = Array.prototype.slice.call(panel.querySelectorAll('.news-item'));
+    var old = panel.querySelector('.pager'); if(old) old.remove();
+    var pages = Math.ceil(items.length / PER);
+    if(pages <= 1){ items.forEach(function(it){ it.style.display=''; }); return; }
+    var cur = 1;
+    var pager = document.createElement('div'); pager.className = 'pager';
+    panel.appendChild(pager);
+    function scrollToTop(){
+      var c = panel.closest('.container');
+      if(c){ window.scrollTo({ top: c.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth' }); }
+    }
+    function mkBtn(label, enabled, active, onClick){
+      var b = document.createElement('button');
+      b.className = 'page-btn' + (active?' active':'') + (!enabled?' disabled':'');
+      b.textContent = label;
+      if(enabled && onClick) b.addEventListener('click', onClick); else b.disabled = true;
+      return b;
+    }
+    function render(){
+      items.forEach(function(it, i){ it.style.display = (Math.floor(i/PER)+1 === cur) ? '' : 'none'; });
+      pager.innerHTML = '';
+      pager.appendChild(mkBtn('‹', cur>1, false, function(){ cur--; render(); scrollToTop(); }));
+      for(var p=1; p<=pages; p++){ (function(p){ pager.appendChild(mkBtn(String(p), true, p===cur, function(){ cur=p; render(); scrollToTop(); })); })(p); }
+      pager.appendChild(mkBtn('›', cur<pages, false, function(){ cur++; render(); scrollToTop(); }));
+    }
+    render();
+  });
+}
+
 /* ===== 초기화 ===== */
 document.addEventListener('DOMContentLoaded', function(){
   route();
+  paginateNews();
 });
 </script>
 
