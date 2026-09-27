@@ -1,9 +1,8 @@
 {
-  "funds": 7053,
-  "investors": 1249,
-  "activeFunds": 5570,
-  "motherFunds": 1086,
-  "newFunds2026": 142,
-  "newFunds2026Amount": 46.8,
-  "updated": "2026-08-10"
+  "funds": 8001,
+  "investors": 4855,
+  "companies": 83711,
+  "newFunds": 55,
+  "plannedFunds": 69,
+  "updated": "2026-09-27"
 }

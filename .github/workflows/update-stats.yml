@@ -1,12 +1,10 @@
 name: 주간 수치 자동 갱신
 
 on:
-  # 2026-09 피봇: 수치 지표가 s1~s5로 바뀌어 기존 크롤러(s1~s4)와 맞지 않음.
-  # 하드코딩된 수치를 자동 크롤러가 덮어쓰지 않도록 주간 스케줄은 잠시 중단.
-  # 크롤러(scripts/update-stats.mjs)를 새 지표에 맞춰 갱신하거나 vcroute API 연동 후 재활성화.
-  # schedule:
-  #   - cron: '0 23 * * 0'   # 매주 일요일 23:00 UTC = 매주 월요일 08:00 KST
-  workflow_dispatch: {}   # 수동 실행 버튼 (필요 시)
+  schedule:
+    # 매주 일요일 23:00 UTC = 매주 월요일 08:00 KST
+    - cron: '0 23 * * 0'
+  workflow_dispatch: {}   # 수동 실행 버튼
 
 permissions:
   contents: write

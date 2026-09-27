@@ -91,8 +91,8 @@
         <div class="stat"><div class="num"><span id="s1">0</span><span class="suf">개</span></div><div class="lab">벤처펀드</div></div>
         <div class="stat"><div class="num"><span id="s2">0</span><span class="suf">곳</span></div><div class="lab">투자자</div></div>
         <div class="stat"><div class="num"><span id="s3">0</span><span class="suf">곳</span></div><div class="lab">등록 기업</div></div>
-        <div class="stat"><div class="num"><span id="s4">0</span><span class="suf">건</span></div><div class="lab">투자 딜</div></div>
-        <div class="stat"><div class="num"><span id="s5">0</span><span class="suf">건</span></div><div class="lab">공개모집 공고</div></div>
+        <div class="stat"><div class="num"><span id="s4">0</span><span class="suf">개</span></div><div class="lab">2026 신규 펀드</div></div>
+        <div class="stat"><div class="num"><span id="s5">0</span><span class="suf">개</span></div><div class="lab">2026 예정 펀드</div></div>
       </div>
       <p class="foot">공시 데이터 기반 · 매일 자동 갱신</p>
     </div>
@@ -840,7 +840,7 @@ function countUp(id,target,decimals){
 }
 function runStats(){
   if(statsDone) return; statsDone=true;
-  countUp('s1',8001); countUp('s2',4855); countUp('s3',83711); countUp('s4',22625); countUp('s5',415);
+  countUp('s1',8001); countUp('s2',4855); countUp('s3',83711); countUp('s4',55); countUp('s5',69);
 }
 function showPage(id){
   if(PAGES.indexOf(id)===-1) id='home';
