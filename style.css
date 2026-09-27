@@ -106,6 +106,9 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.82);
 /* ===== Stats band ===== */
 .stats{background:var(--ink);color:#fff;padding:52px 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stats-5{grid-template-columns:repeat(5,1fr)}
+.stats-5 .num{font-size:clamp(1.5rem,3vw,2.15rem)}
+@media(max-width:760px){.stats-5{grid-template-columns:repeat(3,1fr);gap:30px 14px}}
 .stat .num{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em}
 .stat .num .suf{color:#60a5fa}
 .stat .lab{font-size:14.5px;color:#94a3b8;margin-top:6px;font-weight:500}
