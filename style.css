@@ -133,6 +133,11 @@ header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.82);
   display:grid;place-items:center;font-size:24px;margin-bottom:20px}
 .card h3{font-size:1.18rem;font-weight:700;margin-bottom:10px}
 .card p{font-size:15px;color:var(--muted);line-height:1.65}
+.card h3 .badge{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;vertical-align:middle;padding:3px 9px;border-radius:999px;background:var(--tint);color:var(--brand)}
+.card h3 .badge.beta{background:#ecfdf5;color:#059669}
+.card .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.card .chips span{font-size:12px;font-weight:600;color:var(--ink-2);background:var(--soft);border:1px solid var(--line);padding:4px 10px;border-radius:50px}
+.disclaimer{font-size:12.5px;color:var(--faint);line-height:1.6;margin-top:18px}
 @media(max-width:980px){.cards,.cards.cols-3{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.cards,.cards.cols-3{grid-template-columns:1fr}}
 
